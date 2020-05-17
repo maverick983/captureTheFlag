@@ -1,6 +1,11 @@
-Keylogger maison
+**Keylogger maison**
+================
+Enoncé
 ----------------
+Voir l'enoncé sur root-me.org
 
+Résolution
+----------------
 - 1) **Decodage en base64, 2 solutions**
     - avec CyberChef Online
     - avec une ligne de commande `base64 -d ch24.txt > cha24decode`
@@ -105,6 +110,6 @@ while event:
         print("===========================================")
 
     event = in_file.read(EVENT_SIZE)
-    
+
 in_file.close()
 ```
