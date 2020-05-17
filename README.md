@@ -105,6 +105,5 @@ while event:
         print("===========================================")
 
     event = in_file.read(EVENT_SIZE)
-
 in_file.close()
 ```
