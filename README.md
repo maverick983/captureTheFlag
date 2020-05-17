@@ -58,7 +58,7 @@ def myXor(d):
   a = ''
   for i in d:
     a+= chr(157 ^ ord(i))
-    return a
+  return a
 print(myXor(argv[1]))
 ```
 ```bash
@@ -66,5 +66,8 @@ Echap :x (pour sortir de VIM)
 echo c0nGralut4t10n__$(./hihi.py $(date +%s) | sha1sum | grep -o '^[0-9a-f]\+')_hoh0 > /tmp/flag
 chmod +x *.py
 exit
-
 ```
+Seulement il ne faut pas oublier que `(date +%s)` était le timestamp à l'heure de l'exécution du script.  
+Il faut donc reprendre le fichier keys.txt, et choisir le timestamp correspondant à l'appui de la touche Entrée.  
+Cela transforme donc la commande en   
+`echo c0nGralut4t10n__$(./hihi.py $(echo 1510683198) | sha1sum | grep -o '^[0-9a-f]\+')_hoh0`
