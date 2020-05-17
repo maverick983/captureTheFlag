@@ -35,3 +35,36 @@ Une petite recherche manuelle dans keys.txt le fichier issu de **evdump** :
   - 156 = KP_ENTER
   - 184 = RIGHTALT (AltGr)
   - 200 = UP
+
+- 4) **Décodage de ce qui a été saisi au clavier**  
+```bash
+xt
+ssh app-systeme_ch7@challenge02.root-me.org -p 2222
+yes
+app-systeme-ch7
+ls -l
+cat ch7.c
+exit
+vi hihi.py
+i (pour le insert dans VIM)
+```
+```python
+#!/usr/bin/python
+from sys import argv
+if len(argv) < 2:
+  print ("Usage:%s < to be xored > " % argv[0])
+    exit(2)
+def myXor(d):
+  a = ''
+  for i in d:
+    a+= chr(157) ^ ord(i)
+    return a
+print(myXor(argv[1]))
+```
+```bash
+Echap :x (pour sortir de VIM)
+echo c0nGralut4t10n__$(./hihi.py $(date +%s) | sha1sum | grep -o '^[0-9a-f]\+')_hoh0 > /tmp/flag
+chmod +x *.py
+exit
+
+```
