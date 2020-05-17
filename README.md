@@ -32,7 +32,7 @@ done < "$input"
 `sudo ./read_keys_light.sh > keys_light2.txt`  
 Avec la commande `dumpkeys` on n'obtient pas toutes les correspondances, par exemple pour les keys **156**, **184** et **200**  
 Une petite recherche manuelle dans keys.txt le fichier issu de **evdump** :
-  - 156 = KP_ENTER
+  - 156 = KP_ENTER (touche entrée du pavé numérique)
   - 184 = RIGHTALT (AltGr)
   - 200 = UP
 
