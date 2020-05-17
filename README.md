@@ -71,3 +71,41 @@ Seulement il ne faut pas oublier que `(date +%s)` était le timestamp à l'heure
 Il faut donc reprendre le fichier keys.txt, et choisir le timestamp correspondant à l'appui de la touche Entrée.  
 Cela transforme donc la commande en   
 `echo c0nGralut4t10n__$(./hihi.py $(echo 1510683198) | sha1sum | grep -o '^[0-9a-f]\+')_hoh0`
+
+pour obtenir le timestamp, un petit programme en Python trouvé sur le web :
+```python
+#!/usr/bin/python
+import struct
+import time
+import sys
+
+infile_path = "./cha24decode"
+
+"""
+FORMAT represents the format used by linux kernel input event struct
+See https://github.com/torvalds/linux/blob/v5.5-rc5/include/uapi/linux/input.h#L28
+Stands for: long int, long int, unsigned short, unsigned short, unsigned int
+"""
+FORMAT = 'LI0LHHI'
+EVENT_SIZE = struct.calcsize(FORMAT)
+
+#open file in binary mode
+in_file = open(infile_path, "rb")
+
+event = in_file.read(EVENT_SIZE)
+
+while event:
+    (tv_sec, tv_usec, type, code, value) = struct.unpack(FORMAT, event)
+
+    if type != 0 or code != 0 or value != 0:
+        print("Event type %u, code %u, value %u at %d.%d" % \
+            (type, code, value, tv_sec, tv_usec))
+    else:
+        # Events with code, type and value == 0 are "separator" events
+        print("===========================================")
+
+    event = in_file.read(EVENT_SIZE)
+
+in_file.close()
+
+```
