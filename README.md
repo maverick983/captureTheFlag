@@ -53,11 +53,11 @@ i (pour le insert dans VIM)
 from sys import argv
 if len(argv) < 2:
   print ("Usage:%s < to be xored > " % argv[0])
-    exit(2)
+  exit(2)
 def myXor(d):
   a = ''
   for i in d:
-    a+= chr(157) ^ ord(i)
+    a+= chr(157 ^ ord(i))
     return a
 print(myXor(argv[1]))
 ```
