@@ -12,7 +12,7 @@ Utiliser l'outil écrit en RUBY `evdump` [*Lien vers evdump*](https://www.rubydo
   - installation de `device_input` grâce à **gem** : `sudo gem install device_input`
   - (si message d'erreur au lancement de la commande ci-dessous) installation de `slop`  grâce à **gem** : `sudo gem install slop`  
   - lancement de la commande de décodage : `sudo cat cha24decode |  evdump --print pretty > keys.txt`
-  - on obtient un fichier avec 3 lignes pour chaque touche. Il faut ne garder que les lignes avec le code de la touche, les lignes contenant **Misc:ScanCode**
+  - on obtient un fichier avec 3 lignes pour chaque touche. Il faut ne garder que les lignes avec le code de la touche, les lignes contenant **Misc:ScanCode** ce qui nous donne un fichier keys_light.txt
 
 - 3) **Correspondance KeyCode / caractère**  
 au moyen de la commande `dumpkeys` dans un script bash maison :
@@ -31,10 +31,10 @@ done < "$input"
 
 `sudo ./read_keys_light.sh > keys_light2.txt`  
 Avec la commande `dumpkeys` on n'obtient pas toutes les correspondances, par exemple pour les keys **156**, **184** et **200**  
-Une petite recherche manuelle dans keys.txt le fichier issu de **evdump** :
-  - 156 = KP_ENTER (touche entrée du pavé numérique)
-  - 184 = RIGHTALT (AltGr)
-  - 200 = UP
+Une petite recherche manuelle dans keys.txt le fichier issu de **evdump** :  
+   -- 156 = KP_ENTER (touche entrée du pavé numérique)  
+   -- 184 = RIGHTALT (AltGr)  
+   -- 200 = UP  
 
 - 4) **Décodage de ce qui a été saisi au clavier**  
 ```bash
