@@ -2,7 +2,7 @@
 ================
 Enoncé
 ----------------
-Voir l'enoncé sur root-me.org
+Un keylogger encodé en base64 a permis l'exécution d'un certain nombre de commandes et notamment un programme python. Retrouvez le programme et la chaîne de caractère inscrite dans le fichier /tmp/flag.
 
 Résolution
 ----------------
