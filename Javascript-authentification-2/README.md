@@ -7,4 +7,6 @@ Demande de mot passe
 
 Résolution
 ----------------
-Regarder les fichiers chargés avec Google Chrome `login.js` et une petite lecture du code, donne le mot de passe...
+Regarder les sources avec Google Chrome  
+utilisation de la fonction **unescape** sur une chaine de caractère.  
+Avec la console JS du navigateur on `console.log(unescape("chainecodée"))`....
