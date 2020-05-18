@@ -44,7 +44,7 @@ Une petite recherche manuelle dans keys.txt le fichier issu de **evdump** :
 - 4) **Décodage de ce qui a été saisi au clavier**  
 ```bash
 xt
-ssh app-systeme_ch7@challenge02.root-me.org -p 2222
+ssh app-systeme_ch7@challenge02.*******.org -p 2222
 yes
 app-systeme-ch7
 ls -l
@@ -75,7 +75,8 @@ exit
 Seulement il ne faut pas oublier que `(date +%s)` était le timestamp à l'heure de l'exécution du script.  
 Il faut donc reprendre le fichier keys.txt, et choisir le timestamp correspondant à l'appui de la touche Entrée.  
 Cela transforme donc la commande en   
-`echo c0nGralut4t10n__$(./hihi.py $(echo 1510683198) | sha1sum | grep -o '^[0-9a-f]\+')_hoh0`
+`echo c0nGralut4t10n__$(./hihi.py $(echo {TIMESTAMP}) | sha1sum | grep -o '^[0-9a-f]\+')_hoh0`  
+où `{TIMESTAMP}` est le bon timestamp trouvé.
 
 pour obtenir le timestamp, un petit programme en Python trouvé sur le web :
 ```python
